@@ -9,11 +9,15 @@ const app = express();
 // 1. Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "https://property-management-client-wine.vercel.app",
+      "http://localhost:5173"
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
 app.use(express.json()); // Must be before route handlers
 
 // 2. Connect Database
